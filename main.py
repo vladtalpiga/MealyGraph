@@ -1,4 +1,5 @@
 f = open("date.txt")
+g = open("afis.txt", "w")
 
 n = int(f.readline().split()[1])
 
@@ -12,8 +13,6 @@ for i in range(n):
         d[nod].append(t)
     else:
         d[nod] = [t]
-
-print(d)
 
 stinit = f.readline().split()[0]
 
@@ -35,11 +34,15 @@ for nr in range(nrcuv):
                 drum.append(stare)
                 output.append(x[j][2])
     if stare in starifinale:
-        print("DA")
-        print(*output)
-        print("Traseu: ")
-        print(*drum)
+        g.write("DA\n")
+        for e in output:
+            g.write(e + " ")
+        g.write("\nTraseu: ")
+        for e in drum:
+            g.write(e + " ")
+        g.write("\n")
     else:
-        print("NU")
+        g.write("NU\n")
 
 f.close()
+g.close()
